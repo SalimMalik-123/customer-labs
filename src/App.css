@@ -1,0 +1,57 @@
+.app {
+  width: 100vw !important;
+  height: 100vh !important;
+  font-family: var(--font);
+  color: var(--font-color);
+}
+.bg-teal {
+  background-color: var(--primary) !important;
+}
+.clr-teal {
+  color: var(--primary) !important;
+}
+.overflow-y {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.pointer {
+  cursor: pointer !important;
+}
+.secondary {
+  background-color: #0097a3 !important;
+}
+.text-extra-large {
+  font-size: calc((100vw + 100vh) / 50) !important;
+}
+.text-large {
+  font-size: calc((100vw + 100vh) / 120) !important;
+}
+.text-medium {
+  font-size: calc((100vw + 100vh) / 140) !important;
+}
+.text-small {
+  font-size: calc((100vw + 100vh) / 160) !important;
+}
+
+.fw-400 {
+  font-weight: 400 !important;
+}
+.fw-500 {
+  font-weight: 500 !important;
+}
+.fw-600 {
+  font-weight: 600 !important;
+}
+.fw-700 {
+  font-weight: 700 !important;
+}
+.fw-800 {
+  font-weight: 800 !important;
+}
+.text-light-grey {
+  color: #a4abb4;
+}
+.hover-primary:hover {
+  color: var(--primary) !important;
+  cursor: pointer !important;
+}

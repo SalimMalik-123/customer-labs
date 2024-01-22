@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,700;1,800;1,900");
+:root {
+  --primary: #39aebc;
+  --primary-2: #005d64;
+  --secondary: #0097a3;
+  --secondary2: #008792;
+  --tertiary-color: #f1f7f8;
+  --white: #ffffff;
+  --font-color: #3e3e3e; /* old 364152*/
+  --grey-color: #3e3e3e;
+  --border-grey: #dee2e6;
+  --ancent: #eef2f6;
+  --bg-light: #eef2f6;
+  --font: "Roboto";
+  --bg-white: #ffffff;
+  --bg-success-light: #c6ecda;
+  --bg-danger-light: #ecc6c6;
+}

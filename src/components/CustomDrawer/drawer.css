@@ -1,0 +1,8 @@
+:where(.css-dev-only-do-not-override-1qhpsh8).ant-drawer
+  .ant-drawer-content-wrapper {
+  position: absolute;
+  z-index: 1000;
+  max-width: 100vw;
+  min-width: 300px !important;
+  transition: all 0.3s;
+}
