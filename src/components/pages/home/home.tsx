@@ -45,6 +45,8 @@ function Home() {
       postData.schema.push({ [o.value]: o.label });
     });
     try {
+      console.log(postData);
+
       let res = await useSendData(postData);
       if (res.status === 200) {
         console.log("saved succefully");
