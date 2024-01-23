@@ -13,9 +13,10 @@ const CustomInput = (props: Props) => (
   <div>
     <Input
       style={{ borderRadius: 4 }}
-      {...props}
       size="large"
+      name={props.name}
       required={true}
+      placeholder={props.placeholder}
       status={props.isError ? "error" : ""}
       value={props.value}
       onChange={(e) => props.onChange(e.target.value)}

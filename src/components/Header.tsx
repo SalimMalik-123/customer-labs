@@ -2,6 +2,7 @@ import { LeftOutlined } from "@ant-design/icons";
 import React from "react";
 interface Props {
   title: string;
+  onClose?: () => void;
 }
 const Header = (props: Props) => {
   return (
@@ -11,7 +12,7 @@ const Header = (props: Props) => {
     >
       <div className="d-flex align-items-center">
         <div className="me-3  d-flex align-items-center pointer">
-          <LeftOutlined className="text-white " />
+          <LeftOutlined className="text-white " onClick={props.onClose} />
         </div>
         <div className="">
           <span className=" text-large fw-600 text-white ">{props.title}</span>

@@ -9,3 +9,8 @@ export interface Option {
   label: string;
   disabled?: boolean;
 }
+
+export interface PostSegment {
+  segment_name: string;
+  schema: any[];
+}

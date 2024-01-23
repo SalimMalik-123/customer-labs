@@ -22,7 +22,7 @@ const CustomDrawer = (props: Props) => {
     <Drawer
       closeIcon={<LeftOutlined />}
       closable={false}
-      title={<Header title="Saving Segment" />}
+      title={<Header title="Saving Segment" onClose={props.onClose} />}
       open={props.open}
       // style={{ margin: 0 }}
       style={{ font: `var(--font)` }}

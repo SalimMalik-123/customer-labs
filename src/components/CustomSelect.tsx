@@ -1,8 +1,5 @@
 import { Select } from "antd";
 
-const handleChange = (value: string) => {
-  console.log(`selected ${value}`);
-};
 interface Props {
   color: string;
   options?: {

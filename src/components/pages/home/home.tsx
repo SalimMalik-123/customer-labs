@@ -2,9 +2,9 @@ import { useState } from "react";
 import Header from "../../Header";
 import CustomDrawer from "../../CustomDrawer/CustomDrawer";
 import CustomInput from "../../CustomInput";
-import SegmentCard from "../../SegmentCard";
 import SchemaSection from "./SchemaSection";
-import { Segment } from "../../../core/models/master";
+import { PostSegment, Segment } from "../../../core/models/master";
+import { useSendData } from "../../../core/services/master";
 const IntialSchema: Segment[] = [
   {
     label: "First Name",
@@ -28,15 +28,31 @@ const IntialSchema: Segment[] = [
   },
 ];
 function Home() {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [segmentName, setSegmentName] = useState<string>("");
   const [isErr, setIsErr] = useState<boolean>(false);
 
   const [schemas, setSchemas] = useState<Segment[]>(IntialSchema);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (segmentName === "") {
       setIsErr(true);
+      return;
+    }
+    let postData: PostSegment = { segment_name: segmentName, schema: [] };
+    // let l: any[] = [];
+    schemas.forEach((o) => {
+      postData.schema.push({ [o.value]: o.label });
+    });
+    try {
+      let res = await useSendData(postData);
+      if (res.status === 200) {
+        console.log("saved succefully");
+        setSegmentName("");
+        // set
+      }
+    } catch (error) {
+      console.log("Error", error);
     }
   };
   return (
@@ -46,9 +62,12 @@ function Home() {
         className=" d-flex align-item-center"
         style={{ height: `calc(100% - 75px)` }}
       >
-        <div>
-          <button className="btn-primary" onClick={() => setIsOpen(true)}>
-            open
+        <div className="mt-5 ms-5">
+          <button
+            className=" btn btn-outline-dark"
+            onClick={() => setIsOpen(true)}
+          >
+            Save segment
           </button>
         </div>
       </div>

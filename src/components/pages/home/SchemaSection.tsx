@@ -21,7 +21,6 @@ const SchemaSection = ({ schemas, setSchemas }: Props) => {
         return o;
       }
     });
-    debugger;
     if (filterSchema.value) {
       setSchemas([...schemas, filterSchema]);
       setSchemasList(filterSchemaList);
