@@ -4,14 +4,41 @@ import CustomDrawer from "../../CustomDrawer/CustomDrawer";
 import CustomInput from "../../CustomInput";
 import SegmentCard from "../../SegmentCard";
 import SchemaSection from "./SchemaSection";
-
-const Firstnames = [
-  { value: "jack", label: "Jack" },
-  { value: "lucy", label: "Lucy" },
-  { value: "Yiminghe", label: "yiminghe" },
+import { Segment } from "../../../core/models/master";
+const IntialSchema: Segment[] = [
+  {
+    label: "First Name",
+    value: "frist_name",
+    color: "#58ed67",
+    options: [
+      { value: "Salim", label: "Salim" },
+      { value: "lucy", label: "Lucy" },
+      { value: "Syed", label: "Syed" },
+    ],
+  },
+  {
+    label: "Last Name",
+    value: "last_name",
+    color: "red",
+    options: [
+      { value: "Malik", label: "Malik" },
+      { value: "Rio", label: "Rio" },
+      { value: "Ijaz", label: "Ijaz" },
+    ],
+  },
 ];
 function Home() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [segmentName, setSegmentName] = useState<string>("");
+  const [isErr, setIsErr] = useState<boolean>(false);
+
+  const [schemas, setSchemas] = useState<Segment[]>(IntialSchema);
+
+  const handleSave = () => {
+    if (segmentName === "") {
+      setIsErr(true);
+    }
+  };
   return (
     <div className="app ">
       <Header title="View Audience" />
@@ -26,24 +53,32 @@ function Home() {
         </div>
       </div>
       <CustomDrawer open={isOpen} onClose={() => setIsOpen(false)}>
-        <div className="my-3 ">
+        <div className="my-3 px-4  ">
           <div className="mb-2">
             <span className="ms-1 text-medium   ">
               Enter the Name of the Segment
             </span>
           </div>
           <div className="mb-2">
-            <CustomInput placeholder="Name of the segment" />
+            <CustomInput
+              placeholder="Name of the segment"
+              value={segmentName}
+              onChange={(val) => {
+                setIsErr(false);
+                setSegmentName(val);
+              }}
+              isError={isErr}
+            />
           </div>
         </div>
-        <div className="my-2">
+        <div className="my-2 px-4 ">
           <div className="mb-3 ms-1">
             <span className=" text-medium   ">
               To save your, you need to add the schemas to build the query
             </span>
           </div>
         </div>
-        <div className="my-2 d-flex justify-content-end ">
+        <div className="my-2 px-4  d-flex justify-content-end ">
           <div className="me-3  d-flex align-items-center">
             <div
               className="me-2 rounded-circle"
@@ -67,7 +102,24 @@ function Home() {
             </div>
           </div>
         </div>
-        <SchemaSection />
+
+        <SchemaSection schemas={schemas} setSchemas={setSchemas} />
+        <div className="mt-auto flex-grow-1 d-flex align-items-end">
+          <div
+            className="px-3  d-flex align-items-center w-100    "
+            style={{ height: 70, background: "#f4eeee" }}
+          >
+            <button
+              className="me-3 bg-light-green text-white fw-600 btn   "
+              onClick={handleSave}
+            >
+              Save the segment
+            </button>
+            <button className="me-3 bg-white text-danger fw-600 btn   ">
+              Cancel
+            </button>
+          </div>
+        </div>
       </CustomDrawer>
     </div>
   );

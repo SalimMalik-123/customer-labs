@@ -32,7 +32,9 @@ const CustomDrawer = (props: Props) => {
       }}
       width={"30%"}
     >
-      <div className="px-4 py-2 h-100 overflow-y">{props.children}</div>
+      <div className="py-2 h-100 d-flex flex-column overflow-y">
+        {props.children}
+      </div>
     </Drawer>
   );
 };

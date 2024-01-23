@@ -2,30 +2,13 @@ import { useState } from "react";
 import SegmentCard from "../../SegmentCard";
 import { Segment } from "../../../core/models/master";
 import { SchemasList } from "./schemas";
-const IntialSchema: Segment[] = [
-  {
-    label: "First Name",
-    value: "frist_name",
-    color: "#58ed67",
-    options: [
-      { value: "Salim", label: "Salim" },
-      { value: "lucy", label: "Lucy" },
-      { value: "Syed", label: "Syed" },
-    ],
-  },
-  {
-    label: "Last Name",
-    value: "last_name",
-    color: "red",
-    options: [
-      { value: "Malik", label: "Malik" },
-      { value: "Rio", label: "Rio" },
-      { value: "Ijaz", label: "Ijaz" },
-    ],
-  },
-];
-const SchemaSection = () => {
-  const [schemas, setSchemas] = useState<Segment[]>(IntialSchema);
+
+interface Props {
+  schemas: Segment[];
+  setSchemas: React.Dispatch<React.SetStateAction<Segment[]>>;
+}
+const SchemaSection = ({ schemas, setSchemas }: Props) => {
+  // const [schemas, setSchemas] = useState<Segment[]>(IntialSchema);
   const [schemasList, setSchemasList] = useState<Segment[]>(SchemasList);
   const [sltdSchemas, setSltdSchemas] = useState<string | undefined>();
 
@@ -46,7 +29,7 @@ const SchemaSection = () => {
     }
   };
   return (
-    <div className="">
+    <div className="px-4 ">
       <div className="my-2 px-3 pb-2 border border-primary">
         {schemas.map((obj, ind) => (
           <SegmentCard
