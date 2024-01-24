@@ -25,7 +25,7 @@ const CustomDrawer = (props: Props) => {
       title={<Header title="Saving Segment" onClose={props.onClose} />}
       open={props.open}
       // style={{ margin: 0 }}
-      style={{ font: `var(--font)` }}
+      style={{ font: `var(--font)`, minWidth: 300 }}
       styles={{
         body: { margin: 0, padding: 0 },
         header: { margin: 0, padding: 0 },
